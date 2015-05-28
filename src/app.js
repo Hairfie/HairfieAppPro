@@ -6,11 +6,6 @@ import flux from './flux';
 import providesFlux from './utils/providesFlux';
 
 class App extends React.Component {
-
-    componentDidMount() {
-        flux.actions.app.start();
-    }
-
     render() {
         return <Router />
     }

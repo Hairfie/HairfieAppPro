@@ -13,5 +13,12 @@ module.exports = {
         return hairfie
             .get('/bookings', { query, token })
             .then((bookings) => this.dispatch('RECEIVE_BOOKINGS', bookings));
+    },
+    confirmBooking(bookingId) {
+        return hairfie
+            .post('/bookings/'+bookingId+'/confirm')
+            .then((booking) => {
+                this.dispatch('RECEIVE_BOOKINGS', [booking]);
+            });
     }
 };

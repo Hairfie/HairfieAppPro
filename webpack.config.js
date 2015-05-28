@@ -24,7 +24,6 @@ var config = {
                 include: [
                     path.resolve(__dirname, 'src'),
                     path.resolve(__dirname, 'node_modules/tcomb-form-native'),
-                    path.resolve(__dirname, 'node_modules/react-native-keychain'),
                     path.resolve(__dirname, 'node_modules/react-native-refreshable-listview')
                 ],
                 loaders: ['babel?stage=0&blacklist=validation.react']
@@ -32,7 +31,13 @@ var config = {
         ],
     },
 
-    plugins: [],
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            }
+        })
+    ],
 
 };
 

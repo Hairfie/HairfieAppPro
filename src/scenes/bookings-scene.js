@@ -4,6 +4,7 @@ import React from 'react-native';
 
 import {
     StyleSheet,
+    ScrollView,
     View,
     Text,
     ListView,
@@ -31,6 +32,18 @@ var styles = StyleSheet.create({
     },
     bookingDate: {
         padding: 5
+    },
+    emptyText: {
+        padding: 10,
+        textAlign: 'center'
+    },
+    emptyRefresh: {
+        margin: 10,
+        padding: 20
+    },
+    emptyRefreshText: {
+        color: 'blue',
+        textAlign: 'center'
     }
 });
 
@@ -63,6 +76,25 @@ class BookingsScene extends React.Component {
     }
 
     render() {
+        if (0 === this.state.dataSource.getRowCount()) {
+            return (
+                <ScrollView style={styles.container} centerContent={true}>
+                    <Text style={styles.emptyText}>
+                        Toutes les réservations ont bien été confirmées :)
+                    </Text>
+                    <TouchableHighlight
+                        style={styles.emptyRefresh}
+                        onPress={this._refreshData}
+                        underlayColor="#eeeeee"
+                    >
+                        <Text style={styles.emptyRefreshText}>
+                            Rafraichir
+                        </Text>
+                    </TouchableHighlight>
+                </ScrollView>
+            );
+        }
+
         return (
             <RefreshableListView
                 style={styles.container}

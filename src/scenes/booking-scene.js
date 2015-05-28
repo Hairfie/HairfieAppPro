@@ -68,13 +68,18 @@ class Info extends React.Component {
 
 
 class BookingScene extends React.Component {
+
+    static contextTypes = {
+        flux: React.PropTypes.object.isRequired
+    }
+
     render() {
         const { booking } = this.props;
         const discount = parseInt(booking.discount) || 0;
 
         return (
             <ScrollView style={styles.container}>
-                { booking.confirmed || (
+                { !!booking.confirmed || (
                     <View style={styles.confirmContainer}>
                         <Text style={styles.confirmText}>
                             Cette réservation est en attente de confirmation.
@@ -95,22 +100,22 @@ class BookingScene extends React.Component {
                 <Info title="Status">
                     { booking.confirmed ? 'confirmé' : 'en attente de confirmation' }
                 </Info>
-                { discount && (
+                { !!discount && (
                     <Info title="Promo">
                         { 'réduction de '+discount+'%' }
                     </Info>
                 ) }
-                {booking.comment && (
+                { !!booking.comment && (
                     <Info title="Message du client">
                         { booking.comment }
                     </Info>
-                )}
+                ) }
             </ScrollView>
         );
     }
 
     _confirm = () => {
-
+        this.context.flux.actions.booking.confirmBooking(this.props.bookingId);
     }
 }
 

@@ -1,13 +1,13 @@
 'use strict';
 
 import hairfie from '../services/hairfie-api';
-import AuthStorage from '../services/auth-storage';
 import { FacebookLoginManager } from 'NativeModules';
+import { AlertIOS } from 'react-native';
 
 module.exports = {
     logout() {
         this.dispatch('LOGOUT');
-        return this.flux.actions.nav.resetTo('login');
+        return Promise.resolve();
     },
     login(email, password) {
         this.dispatch('LOGIN_START');
@@ -18,7 +18,15 @@ module.exports = {
                 token => {
                     this.flux.actions.auth.loginWithToken(token)
                 },
-                this.dispatch.bind(this, 'LOGIN_FAILURE')
+                () => {
+                    this.dispatch.bind(this, 'LOGIN_FAILURE')
+
+                    // TODO: use a store for alerts / infos
+                    AlertIOS.alert(
+                        'Échec de la connexion',
+                        'Les identifiants que vous avez saisi sont invalides, veuillez réessayer.'
+                    );
+                }
             );
     },
     loginWithFacebook() {
@@ -40,17 +48,7 @@ module.exports = {
     },
     loginWithToken(token) {
         this.dispatch('LOGIN_SUCCESS', token);
-
-        return AuthStorage.setToken(token);
-    },
-    rememberLogin(token) {
-        return AuthStorage
-            .getToken()
-            .then((token) => {
-                if (token) {
-                    this.dispatch('LOGIN_SUCCESS', token);
-                }
-            });
+        return Promise.resolve();
     },
     chooseBusiness(businessId) {
         this.dispatch('CHOOSE_BUSINESS', businessId);

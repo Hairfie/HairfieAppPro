@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "./node_modules/.bin/react-native-webpack-server start",
-    "hot": "HOT=1 node ./node_modules/.bin/react-native-webpack-server start --hot"
+    "hot": "HOT=1 node ./node_modules/.bin/react-native-webpack-server start --hot",
+    "prod": "NODE_ENV=production npm start"
   },
   "dependencies": {
     "babel-core": "^5.4.7",
@@ -15,7 +16,6 @@
     "lodash": "^3.9.1",
     "moment": "^2.10.3",
     "react-native": "^0.4.4",
-    "react-native-keychain": "^0.1.0",
     "react-native-refreshable-listview": "^1.2.0",
     "tcomb": "^1.0.3",
     "tcomb-form-native": "^0.1.8",

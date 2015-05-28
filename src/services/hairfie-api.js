@@ -1,7 +1,11 @@
 'use strict';
 
-var Client = require('hairfie-api');
+import Client from 'hairfie-api';
 
-module.exports = new Client({
-    apiUrl: 'https://hairfie-api-staging.herokuapp.com/v1'
-});
+let apiUrl = 'https://hairfie-api-staging.herokuapp.com/v1';
+
+if (process.env.NODE_ENV === 'production') {
+    apiUrl = 'https://hairfie.herokuapp.com/v1';
+}
+
+export default new Client({ apiUrl });

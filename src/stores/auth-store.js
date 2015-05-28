@@ -7,6 +7,7 @@ var AuthStore = Fluxxor.createStore({
         LOGIN_START: 'onLoginStart',
         LOGIN_SUCCESS: 'onLoginSuccess',
         LOGIN_FAILURE: 'onLoginFailure',
+        LOGOUT: 'onLogout',
         CHOOSE_BUSINESS: 'onChooseBusiness'
     },
     initialize() {
@@ -25,6 +26,11 @@ var AuthStore = Fluxxor.createStore({
     },
     onLoginFailure() {
         this.loggingIn = false;
+        this.emit('change');
+    },
+    onLogout() {
+        this.token = null;
+        this.businessId = null;
         this.emit('change');
     },
     onChooseBusiness(businessId) {
