@@ -87,7 +87,7 @@ class LoginScene extends React.Component {
         if (this.props.loggingIn) return;
         var credentials = this.refs.form.getValue();
         if (!credentials) return;
-        this.context.flux.actions.auth.login(credentials.email, credentials.password);
+        this.context.flux.actions.auth.submitLoginForm(credentials.email, credentials.password);
     }
 }
 

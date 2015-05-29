@@ -9,7 +9,7 @@ module.exports = {
         this.dispatch('LOGOUT');
         return Promise.resolve();
     },
-    login(email, password) {
+    submitLoginForm(email, password) {
         this.dispatch('LOGIN_START');
 
         return hairfie
