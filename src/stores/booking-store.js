@@ -17,11 +17,11 @@ var BookingStore = Fluxxor.createStore({
     getById(bookingId) {
         return this.bookings[bookingId];
     },
-    getAllNotConfirmed(businessId) {
-        return _.filter(
-            _.values(this.bookings),
-            b => !b.confirmed && (b.business || {}).id == businessId
-        );
+    getAll(businessId) {
+        return _.filter(_.values(this.bookings), { business: { id: businessId } });
+    },
+    getRequests(businessId) {
+        return _.filter(_.values(this.bookings), { confirmed: false, business: { id: businessId } });
     }
 });
 

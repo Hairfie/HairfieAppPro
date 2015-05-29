@@ -8,6 +8,7 @@ import {
     View,
     Text,
     ListView,
+    SegmentedControlIOS,
     TouchableHighlight
 } from 'react-native';
 
@@ -15,6 +16,7 @@ import RefreshableListView from 'react-native-refreshable-listview';
 import connectToStores from '../utils/connectToStores';
 import BookingScene from './booking-scene';
 import { formatDate } from '../utils/date-utils';
+import EmptyList from '../components/empty-list';
 
 
 var styles = StyleSheet.create({
@@ -33,19 +35,10 @@ var styles = StyleSheet.create({
     bookingDate: {
         padding: 5
     },
-    emptyText: {
-        padding: 10,
-        textAlign: 'center'
-    },
-    emptyRefresh: {
-        margin: 10,
-        padding: 20
-    },
-    emptyRefreshText: {
-        color: 'blue',
-        textAlign: 'center'
-    }
 });
+
+const TAB_REQUESTS = 'requests';
+const TAB_ALL = 'all';
 
 class BookingsScene extends React.Component {
 
@@ -61,7 +54,9 @@ class BookingsScene extends React.Component {
         });
 
         this.state = {
-            dataSource: dataSource.cloneWithRows(props.bookings)
+            tab: TAB_REQUESTS,
+            bookingsDataSource: dataSource.cloneWithRows(props.bookings),
+            requestsDataSource: dataSource.cloneWithRows(props.requests)
         };
     }
 
@@ -71,34 +66,53 @@ class BookingsScene extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(nextProps.bookings)
+            bookingsDataSource: this.state.bookingsDataSource.cloneWithRows(nextProps.bookings),
+            requestsDataSource: this.state.requestsDataSource.cloneWithRows(nextProps.requests)
         });
     }
 
     render() {
-        if (0 === this.state.dataSource.getRowCount()) {
+        const tabs = [
+            { id: TAB_REQUESTS, title: 'À confirmer' },
+            { id: TAB_ALL, title: 'Toutes' }
+        ];
+
+        return (
+            <View style={styles.container}>
+                <SegmentedControlIOS
+                    style={{margin: 10, marginTop: 70}}
+                    values={_.pluck(tabs, 'title')}
+                    selectedIndex={_.findIndex(tabs, {id: this.state.tab})}
+                    onValueChange={title => this.setState({ tab: tabs[_.findIndex(tabs, { title })].id })}
+                />
+                {this.state.tab === TAB_ALL ?
+                    this._renderList(
+                        this.state.bookingsDataSource,
+                        "Aucune réservation à afficher"
+                    ) :
+                    this._renderList(
+                        this.state.requestsDataSource,
+                        "Toutes les réservations ont bien été confirmées :)"
+                    )
+                }
+            </View>
+        );
+    }
+
+    _renderList(dataSource, emptyMessage) {
+        if (0 === dataSource.getRowCount()) {
             return (
-                <ScrollView style={styles.container} centerContent={true}>
-                    <Text style={styles.emptyText}>
-                        Toutes les réservations ont bien été confirmées :)
-                    </Text>
-                    <TouchableHighlight
-                        style={styles.emptyRefresh}
-                        onPress={this._refreshData}
-                        underlayColor="#eeeeee"
-                    >
-                        <Text style={styles.emptyRefreshText}>
-                            Rafraichir
-                        </Text>
-                    </TouchableHighlight>
-                </ScrollView>
+                <EmptyList
+                    message={emptyMessage}
+                    refreshButtonTitle="Rafraichir"
+                    onRefreshButtonPress={this._refreshData}
+                />
             );
         }
 
         return (
             <RefreshableListView
-                style={styles.container}
-                dataSource={this.state.dataSource}
+                dataSource={dataSource}
                 renderRow={this._renderRow}
                 loadData={this._refreshData}
                 refreshDescription="Rafraichissement des réservations..."
@@ -114,7 +128,7 @@ class BookingsScene extends React.Component {
                         {booking.firstName+' '+booking.lastName}
                     </Text>
                     <Text style={styles.bookingDate}>
-                        {formatDate(booking.timeslot, 'LLLL')}
+                        {formatDate(booking.dateTime, 'LLLL')}
                     </Text>
                 </View>
             </TouchableHighlight>
@@ -122,7 +136,7 @@ class BookingsScene extends React.Component {
     }
 
     _refreshData = () => {
-        this.context.flux.actions.booking.loadNotConfirmed(this.props.businessId);
+        this.context.flux.actions.booking.loadAll(this.props.businessId);
     }
 
     _openBooking = (bookingId) => {
@@ -139,7 +153,8 @@ BookingsScene = connectToStores(BookingsScene, [
     'BookingStore'
 ], ({ BusinessStore, BookingStore }, { businessId }) => ({
     business: BusinessStore.getById(businessId),
-    bookings: BookingStore.getAllNotConfirmed(businessId)
+    requests: BookingStore.getRequests(businessId),
+    bookings: BookingStore.getAll(businessId)
 }));
 
 export default BookingsScene;

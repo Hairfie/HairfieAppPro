@@ -95,7 +95,7 @@ class BookingScene extends React.Component {
                     { (booking.gender == 'MALE' ? 'M' : 'Mme')+' '+booking.firstName+' '+booking.lastName }
                 </Info>
                 <Info title="Date">
-                    { formatDate(booking.timeslot, 'LLLL') }
+                    { formatDate(booking.dateTime, 'LLLL') }
                 </Info>
                 <Info title="Status">
                     { booking.confirmed ? 'confirmé' : 'en attente de confirmation' }
