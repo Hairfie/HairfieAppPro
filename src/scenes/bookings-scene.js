@@ -12,16 +12,22 @@ import {
     TouchableHighlight
 } from 'react-native';
 
-import RefreshableListView from 'react-native-refreshable-listview';
+import RefreshableListView from '../components/refreshable-list-view';
 import connectToStores from '../utils/connectToStores';
 import BookingScene from './booking-scene';
 import { formatDate } from '../utils/date-utils';
-import EmptyList from '../components/empty-list';
-
 
 var styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        marginTop: 65
+    },
+    filter: {
+        margin: 10
+    },
+    bookings: {
+        padding: 0,
+        margin: 0
     },
     booking: {
         borderBottomColor: '#dddddd',
@@ -80,7 +86,7 @@ class BookingsScene extends React.Component {
         return (
             <View style={styles.container}>
                 <SegmentedControlIOS
-                    style={{margin: 10, marginTop: 70}}
+                    style={styles.filter}
                     values={_.pluck(tabs, 'title')}
                     selectedIndex={_.findIndex(tabs, {id: this.state.tab})}
                     onValueChange={title => this.setState({ tab: tabs[_.findIndex(tabs, { title })].id })}
@@ -100,29 +106,25 @@ class BookingsScene extends React.Component {
     }
 
     _renderList(dataSource, emptyMessage) {
-        if (0 === dataSource.getRowCount()) {
-            return (
-                <EmptyList
-                    message={emptyMessage}
-                    refreshButtonTitle="Rafraichir"
-                    onRefreshButtonPress={this._refreshData}
-                />
-            );
-        }
-
         return (
             <RefreshableListView
+                style={styles.bookings}
+                automaticallyAdjustContentInsets={false}
                 dataSource={dataSource}
                 renderRow={this._renderRow}
                 loadData={this._refreshData}
-                refreshDescription="Rafraichissement des réservations..."
+                emptyMessage={emptyMessage}
             />
         );
     }
 
     _renderRow = (booking) => {
         return (
-            <TouchableHighlight style={styles.booking} onPress={this._openBooking.bind(this, booking.id)}>
+            <TouchableHighlight
+                style={styles.booking}
+                onPress={this._openBooking.bind(this, booking.id)}
+                underlayColor="#cccccc"
+            >
                 <View>
                     <Text style={styles.bookingName}>
                         {booking.firstName+' '+booking.lastName}

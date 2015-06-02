@@ -32,14 +32,14 @@ const styles = StyleSheet.create({
     },
     confirmContainer: {
         padding: 10,
-        backgroundColor: '#fff3f3'
+        backgroundColor: '#ffe7e0',
     },
     confirmText: {
         textAlign: 'center'
     },
     confirmButton: {
         padding: 10,
-        backgroundColor: '#fe5b5e',
+        backgroundColor: '#fe5a26',
         marginTop: 10,
         borderRadius: 5
     },

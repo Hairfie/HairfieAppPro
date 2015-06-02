@@ -18,10 +18,18 @@ var BookingStore = Fluxxor.createStore({
         return this.bookings[bookingId];
     },
     getAll(businessId) {
-        return _.filter(_.values(this.bookings), { business: { id: businessId } });
+        return _.sortByOrder(
+            _.filter(_.values(this.bookings), { business: { id: businessId } }),
+            ['dateTime'],
+            [false]
+        );
     },
     getRequests(businessId) {
-        return _.filter(_.values(this.bookings), { confirmed: false, business: { id: businessId } });
+        return _.sortByOrder(
+            _.filter(_.values(this.bookings), { confirmed: false, business: { id: businessId } }),
+            ['dateTime'],
+            [false]
+        );
     }
 });
 

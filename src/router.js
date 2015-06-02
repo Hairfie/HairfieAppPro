@@ -50,7 +50,7 @@ class Router extends React.Component {
                 key="bookings"
                 style={styles.container}
                 initialRoute={{
-                    title: 'Réservations à confirmer',
+                    title: 'Réservations',
                     backButtonTitle: 'Retour',
                     rightButtonTitle: 'Menu',
                     rightButtonIcon: require('image!Topbar-Menu-Icon'),
