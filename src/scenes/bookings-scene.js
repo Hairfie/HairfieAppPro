@@ -112,7 +112,7 @@ class BookingsScene extends React.Component {
                 automaticallyAdjustContentInsets={false}
                 dataSource={dataSource}
                 renderRow={this._renderRow}
-                loadData={this._refreshData}
+                reloadData={this._refreshData}
                 emptyMessage={emptyMessage}
             />
         );

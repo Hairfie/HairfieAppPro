@@ -22,7 +22,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		715362531B21C97B00570960 /* HairfieImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 715362521B21C97B00570960 /* HairfieImageManager.m */; };
 		716B4BA61B1E0978005E3E23 /* libRCTRefreshControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716B4B9F1B1E0474005E3E23 /* libRCTRefreshControl.a */; };
+		718FFAFE1B1F2E6C008DA7BC /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 718FFAF31B1F2E5D008DA7BC /* libRCTCamera.a */; };
+		718FFB1B1B204E87008DA7BC /* ImagePickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 718FFB1A1B204E87008DA7BC /* ImagePickerManager.m */; };
 		719A01AD1B0C785900E3DA60 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719A01AB1B0C785900E3DA60 /* FBSDKCoreKit.framework */; };
 		719A01AE1B0C785900E3DA60 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719A01AC1B0C785900E3DA60 /* FBSDKLoginKit.framework */; };
 		719A01B21B0C8B9D00E3DA60 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719A01B11B0C8B9D00E3DA60 /* Bolts.framework */; };
@@ -109,6 +112,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTRefreshControl;
 		};
+		718FFAF21B1F2E5D008DA7BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 718FFAEC1B1F2E5D008DA7BC /* RCTCamera.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RCTCamera;
+		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -146,7 +156,12 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iOS/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iOS/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		715362511B21C97B00570960 /* HairfieImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HairfieImageManager.h; path = iOS/NativeModules/HairfieImageManager.h; sourceTree = "<group>"; };
+		715362521B21C97B00570960 /* HairfieImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HairfieImageManager.m; path = iOS/NativeModules/HairfieImageManager.m; sourceTree = "<group>"; };
 		716B4B941B1E0474005E3E23 /* RCTRefreshControl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTRefreshControl.xcodeproj; path = "node_modules/react-refresh-control/RCTRefreshControl.xcodeproj"; sourceTree = "<group>"; };
+		718FFAEC1B1F2E5D008DA7BC /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "node_modules/react-native-camera/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
+		718FFB191B204E87008DA7BC /* ImagePickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePickerManager.h; path = iOS/NativeModules/ImagePickerManager.h; sourceTree = "<group>"; };
+		718FFB1A1B204E87008DA7BC /* ImagePickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagePickerManager.m; path = iOS/NativeModules/ImagePickerManager.m; sourceTree = "<group>"; };
 		719A01AB1B0C785900E3DA60 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = iOS/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		719A01AC1B0C785900E3DA60 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = iOS/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		719A01B11B0C8B9D00E3DA60 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = iOS/Frameworks/Bolts.framework; sourceTree = "<group>"; };
@@ -168,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				718FFAFE1B1F2E6C008DA7BC /* libRCTCamera.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				719A01AD1B0C785900E3DA60 /* FBSDKCoreKit.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -300,6 +316,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		718FFAED1B1F2E5D008DA7BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				718FFAF31B1F2E5D008DA7BC /* libRCTCamera.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		719A01A61B0C781200E3DA60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +339,10 @@
 			children = (
 				719A01B81B0C923A00E3DA60 /* FacebookLoginManager.h */,
 				719A01BA1B0C926600E3DA60 /* FacebookLoginManager.m */,
+				718FFB191B204E87008DA7BC /* ImagePickerManager.h */,
+				718FFB1A1B204E87008DA7BC /* ImagePickerManager.m */,
+				715362511B21C97B00570960 /* HairfieImageManager.h */,
+				715362521B21C97B00570960 /* HairfieImageManager.m */,
 			);
 			name = NativeModules;
 			sourceTree = "<group>";
@@ -330,6 +358,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				718FFAEC1B1F2E5D008DA7BC /* RCTCamera.xcodeproj */,
 				716B4B941B1E0474005E3E23 /* RCTRefreshControl.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -453,6 +482,10 @@
 					ProjectRef = 00C302AF1ABCB8E700DB3ED1 /* RCTAdSupport.xcodeproj */;
 				},
 				{
+					ProductGroup = 718FFAED1B1F2E5D008DA7BC /* Products */;
+					ProjectRef = 718FFAEC1B1F2E5D008DA7BC /* RCTCamera.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -572,6 +605,13 @@
 			remoteRef = 716B4B9E1B1E0474005E3E23 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		718FFAF31B1F2E5D008DA7BC /* libRCTCamera.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCamera.a;
+			remoteRef = 718FFAF21B1F2E5D008DA7BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -624,6 +664,8 @@
 				719A01B91B0C923A00E3DA60 /* FacebookLoginManager.h in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				715362531B21C97B00570960 /* HairfieImageManager.m in Sources */,
+				718FFB1B1B204E87008DA7BC /* ImagePickerManager.m in Sources */,
 				719A01BB1B0C926600E3DA60 /* FacebookLoginManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

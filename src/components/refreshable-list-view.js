@@ -10,6 +10,7 @@ class NotEmpty extends React.Component {
         RCTRefreshControl.configure({
             node: this.refs.listView
         }, () => {
+            this.props.reloadData();
             this._timeout = setTimeout(() => {
                 RCTRefreshControl.endRefreshing(this.refs.listView);
             }, 1000);
@@ -38,6 +39,7 @@ class Empty extends React.Component {
         RCTRefreshControl.configure({
             node: this.refs.listView
         }, () => {
+            this.props.reloadData();
             this._timeout = setTimeout(() => {
                 RCTRefreshControl.endRefreshing(this.refs.listView);
             }, 1000);
@@ -69,8 +71,8 @@ export default class RefreshableListView extends React.Component {
 
     static propTypes = {
         dataSource: React.PropTypes.object.isRequired,
-        refresh: React.PropTypes.func.isRequired,
-        emptyMessage: React.PropTypes.func.isRequired
+        reloadData: React.PropTypes.func.isRequired,
+        emptyMessage: React.PropTypes.string.isRequired
     }
 
     render() {
