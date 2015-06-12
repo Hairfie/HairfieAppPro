@@ -129,7 +129,7 @@ export default class HairfieCamera extends React.Component {
                     >
                         <Image
                             style={styles.pickerButtonImage}
-                            source={this.state.pickerButtonImage}
+                            source={this.state.cameraRollImage}
                             resizeMode="cover"
                         />
                     </TouchableHighlight>
