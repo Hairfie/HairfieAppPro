@@ -23,6 +23,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		715362531B21C97B00570960 /* HairfieImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 715362521B21C97B00570960 /* HairfieImageManager.m */; };
+		715B66AC1B2986AF00D7D0EC /* RCTFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B66AB1B2986AF00D7D0EC /* RCTFileTransfer.m */; };
 		716B4BA61B1E0978005E3E23 /* libRCTRefreshControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716B4B9F1B1E0474005E3E23 /* libRCTRefreshControl.a */; };
 		718FFAFE1B1F2E6C008DA7BC /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 718FFAF31B1F2E5D008DA7BC /* libRCTCamera.a */; };
 		718FFB1B1B204E87008DA7BC /* ImagePickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 718FFB1A1B204E87008DA7BC /* ImagePickerManager.m */; };
@@ -158,6 +159,7 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		715362511B21C97B00570960 /* HairfieImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HairfieImageManager.h; path = iOS/NativeModules/HairfieImageManager.h; sourceTree = "<group>"; };
 		715362521B21C97B00570960 /* HairfieImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HairfieImageManager.m; path = iOS/NativeModules/HairfieImageManager.m; sourceTree = "<group>"; };
+		715B66AB1B2986AF00D7D0EC /* RCTFileTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTFileTransfer.m; path = iOS/NativeModules/RCTFileTransfer.m; sourceTree = "<group>"; };
 		716B4B941B1E0474005E3E23 /* RCTRefreshControl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTRefreshControl.xcodeproj; path = "node_modules/react-refresh-control/RCTRefreshControl.xcodeproj"; sourceTree = "<group>"; };
 		718FFAEC1B1F2E5D008DA7BC /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "node_modules/react-native-camera/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		718FFB191B204E87008DA7BC /* ImagePickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePickerManager.h; path = iOS/NativeModules/ImagePickerManager.h; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				718FFB1A1B204E87008DA7BC /* ImagePickerManager.m */,
 				715362511B21C97B00570960 /* HairfieImageManager.h */,
 				715362521B21C97B00570960 /* HairfieImageManager.m */,
+				715B66AB1B2986AF00D7D0EC /* RCTFileTransfer.m */,
 			);
 			name = NativeModules;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				719A01B91B0C923A00E3DA60 /* FacebookLoginManager.h in Sources */,
+				715B66AC1B2986AF00D7D0EC /* RCTFileTransfer.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				715362531B21C97B00570960 /* HairfieImageManager.m in Sources */,

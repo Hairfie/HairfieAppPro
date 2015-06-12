@@ -72,6 +72,19 @@ RCT_EXPORT_METHOD(createScaledCopyOfImage:(NSString *)uri withCallback:(RCTRespo
           ALAssetOrientation orientation = [representation orientation];
           UIImage *image = [UIImage imageWithCGImage:[representation fullResolutionImage] scale:1.0f orientation:(UIImageOrientation)orientation];
           
+          if (image.size.width == 640 && image.size.height == 640) {
+            // the selected image is already perfect :)
+            dispatch_async(dispatch_get_main_queue(), ^{
+              callback(@[[NSNull null], @{
+                @"uri": uri,
+                @"height": @(image.size.height),
+                @"width": @(image.size.width),
+                @"isStatic": @YES
+              }]);
+            });
+            return;
+          }
+          
           // scale it
           image = [self scaleImage:image];
           
@@ -80,11 +93,11 @@ RCT_EXPORT_METHOD(createScaledCopyOfImage:(NSString *)uri withCallback:(RCTRespo
                   withSuccess:^(NSString *newUri) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                       callback(@[[NSNull null], @{
-                                   @"uri": newUri,
-                                   @"height": @(image.size.height),
-                                   @"width": @(image.size.width),
-                                   @"isStatic": @YES
-                                   }]);
+                        @"uri": newUri,
+                        @"height": @(image.size.height),
+                        @"width": @(image.size.width),
+                        @"isStatic": @YES
+                      }]);
                     });
                   }
                    andFailure:^(NSError *error) {
@@ -131,18 +144,16 @@ RCT_EXPORT_METHOD(createScaledCopyOfImage:(NSString *)uri withCallback:(RCTRespo
          withSuccess:(void (^) (NSString *uri))success
           andFailure:(void (^) (NSError *error))failure
 {
-  NSString *fileName = [NSString stringWithFormat:@"%@.jpg", [[NSProcessInfo processInfo] globallyUniqueString]];
-  NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-  NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
-  NSError *error = nil;
-  
-  [imageData writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-  
-  if (nil == error) {
-    success([fileURL absoluteString]);
-  } else {
-    failure(error);
-  }
+  ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
+
+  [assetsLibrary writeImageToSavedPhotosAlbum:[image CGImage]
+                                     metadata:nil
+                              completionBlock:^(NSURL *assetURL, NSError *saveError) {
+                                if (saveError) {
+                                  failure(saveError);
+                                }
+                                success([assetURL absoluteString]);
+                              }];
 }
 
 @end

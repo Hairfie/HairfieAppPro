@@ -163,10 +163,9 @@ export default class HairfieCamera extends React.Component {
         this.setState({ capturing: true });
 
         this.refs.camera.capture((err, uri) => {
-            this.setState({ capturing: false });
-
             if (err) {
                 console.log('failed to capture', err);
+                this.setState({ capturing: false });
                 return;
             }
 
@@ -174,9 +173,10 @@ export default class HairfieCamera extends React.Component {
                 if (err) {
                     console.log('failed to move captured image', err);
                     return;
+                } else {
+                    this.props.onImage(image);
+                    this.setState({ capturing: false });
                 }
-
-                this.props.onImage(image);
             });
         });
     }
@@ -190,8 +190,6 @@ export default class HairfieCamera extends React.Component {
                         'L\image doit faire au moins 640 pixels de haut et 640 pixels de large'
                     );
                 }
-
-                console.log(image);
 
                 HairfieImageManager.createScaledCopyOfImage(image.uri, (err, image) => {
                     if (err) {

@@ -17,11 +17,11 @@
     "moment": "^2.10.3",
     "react-native": "^0.4.4",
     "react-native-camera": "^0.2.7",
-    "react-native-icons": "0.0.8",
     "react-refresh-control": "^2.0.4",
     "tcomb": "^1.0.3",
     "tcomb-form-native": "^0.1.8",
-    "tcomb-validation": "^1.0.4"
+    "tcomb-validation": "^1.0.4",
+    "uuid": "^2.0.1"
   },
   "devDependencies": {
     "babel": "^5.4.7",

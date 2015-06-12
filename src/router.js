@@ -28,6 +28,10 @@ class Authenticated extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.context.flux.actions.tag.loadAll();
+    }
+
     render() {
         const { businessId } = this.props;
 
@@ -107,15 +111,6 @@ import HairfieCamera from './components/hairfie-camera';
 class Router extends React.Component {
 
     render() {
-
-        return (
-            <HairfieCamera
-                style={{ flex: 1 }}
-                onImage={(image) => console.log('camera got image', image)}
-            />
-        );
-
-
         var { loggedIn, businessId } = this.props;
 
         if (!loggedIn) {

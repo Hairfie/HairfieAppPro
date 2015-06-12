@@ -31,8 +31,8 @@
    * on the same Wi-Fi network.
    */
 
-  //jsCodeLocation = [NSURL URLWithString:@"http://localhost:8080/index.ios.bundle"];
-  jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.10:8080/index.ios.bundle"];
+  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8080/index.ios.bundle"];
+  //jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.10:8080/index.ios.bundle"];
 
   /**
    * OPTION 2
