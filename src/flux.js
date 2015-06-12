@@ -7,7 +7,8 @@ var flux = new Flux({
     BusinessStore: new (require('./stores/business-store'))(),
     BookingStore: new (require('./stores/booking-store'))(),
     BusinessMemberStore: new (require('./stores/business-member-store'))(),
-    TagStore: new (require('./stores/tag-store'))()
+    TagStore: new (require('./stores/tag-store'))(),
+    HairfieStore: new (require('./stores/hairfie-store'))()
 }, {
     auth: require('./actions/auth-actions'),
     business: require('./actions/business-actions'),

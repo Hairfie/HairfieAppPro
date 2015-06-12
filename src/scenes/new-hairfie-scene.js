@@ -104,7 +104,7 @@ export default class NewHairfieScene extends React.Component {
             });
         } else {
             this._takePicture('Photo', (image) => {
-                hairfie.image = [image];
+                hairfie.images = [image];
                 this._chooseHairdresser(hairfie);
             });
         }

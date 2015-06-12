@@ -44,7 +44,10 @@ const styles = StyleSheet.create({
     },
     pickerButtonImage: {
         flex: 1,
-        borderRadius: 5
+        borderRadius: 5,
+        width: 50,
+        height: 50,
+        backgroundColor: '#999999'
     },
     captureButton: {
         width: 80,
@@ -126,7 +129,7 @@ export default class HairfieCamera extends React.Component {
                     >
                         <Image
                             style={styles.pickerButtonImage}
-                            source={_.extend({}, this.state.cameraRollImage, { width: 50, height: 50 })}
+                            source={this.state.pickerButtonImage}
                             resizeMode="cover"
                         />
                     </TouchableHighlight>

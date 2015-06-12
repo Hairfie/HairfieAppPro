@@ -7,6 +7,17 @@ import { AlertIOS } from 'react-native';
 
 export default {
 
+    loadAllByBusiness(businessId) {
+        const query = {
+            'filter[where][businessId]': businessId,
+            'filter[limit]': 10
+        };
+
+        return hairfie
+            .get('/hairfies', { query })
+            .then(hairfies => this.dispatch('RECEIVE_HAIRFIES', hairfies));
+    },
+
     submit(values) {
         const id = uuid.v4();
 
@@ -25,11 +36,6 @@ export default {
         return upload(values, token)
             .then(hairfie => {
                 this.dispatch('HAIRFIE_UPLOAD_SUCCESS', { id, hairfie })
-
-                AlertIOS.alert(
-                    'Hairfie envoyé',
-                    'Votre hairfie a bien été envoyé.'
-                );
             })
             .catch(error => {
                 this.dispatch('HAIRFIE_UPLOAD_FAILURE', { id, error })

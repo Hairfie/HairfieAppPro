@@ -10,9 +10,11 @@ import LoginScene from './scenes/login-scene';
 import ChooseBusinessScene from './scenes/choose-business-scene';
 import BookingsScene from './scenes/bookings-scene';
 import NewHairfieScene from './scenes/new-hairfie-scene';
+import HairfiesScene from './scenes/hairfies-scene';
 
 const TAB_BOOKING = 'booking';
-const TAB_HAIRFIE = 'hairfie';
+const TAB_NEW_HAIRFIE = 'new-hairfie';
+const TAB_HAIRFIES = 'hairfies';
 
 class Authenticated extends React.Component {
 
@@ -45,10 +47,17 @@ class Authenticated extends React.Component {
                     { businessId }
                 )}
                 {this._renderTab(
-                    TAB_HAIRFIE,
+                    TAB_NEW_HAIRFIE,
                     require('image!Icon-Camera'),
                     'Nouveau Hairfie',
                     NewHairfieScene,
+                    { businessId }
+                )}
+                {this._renderTab(
+                    TAB_HAIRFIES,
+                    require('image!Icon-Film'),
+                    'Hairfies',
+                    HairfiesScene,
                     { businessId }
                 )}
             </TabBarIOS>
