@@ -24,6 +24,7 @@ var config = {
                 include: [
                     path.resolve(__dirname, 'src'),
                     path.resolve(__dirname, 'node_modules/tcomb-form-native'),
+                    path.resolve(__dirname, 'node_modules/react-native-camera'),
                     path.resolve(__dirname, 'node_modules/react-refresh-control')
                 ],
                 loaders: ['babel?stage=0&blacklist=validation.react']
