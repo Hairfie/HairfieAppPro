@@ -7,7 +7,8 @@ import {
     View,
     Text,
     TouchableHighlight,
-    Image
+    Image,
+    AlertIOS
 } from 'react-native';
 import t from 'tcomb-form-native';
 
@@ -50,6 +51,14 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         textAlign: 'center'
     },
+    passwordLostButton: {
+        margin: 10,
+        padding: 5
+    },
+    passwordLostButtonText: {
+        textAlign: 'center',
+        color: '#0000ff'
+    },
     facebookLogin: {
         paddingTop: 10,
         borderRadius: 5
@@ -90,10 +99,19 @@ class LoginScene extends Component {
                 <TouchableHighlight
                     style={styles.submitButton}
                     onPress={this._handleSubmit}
-                    underlayColor='#99d9f4'
+                    underlayColor="#fe282e"
                 >
                     <Text style={styles.submitButtonText}>
                         {this.props.loggingIn ? 'Connexion en cours...' : 'Se connecter'}
+                    </Text>
+                </TouchableHighlight>
+                <TouchableHighlight
+                    style={styles.passwordLostButton}
+                    onPress={this._handlePasswordLostPress}
+                    underlayColor="#ffffff"
+                >
+                    <Text style={styles.passwordLostButtonText}>
+                        Mot de passe oublié ?
                     </Text>
                 </TouchableHighlight>
                 <View style={styles.facebookLogin}>
@@ -103,6 +121,7 @@ class LoginScene extends Component {
                     <TouchableHighlight
                         style={styles.facebookLoginButton}
                         onPress={this._handleFacebookLoginPress}
+                        underlayColor="#2d4473"
                     >
                         <Text style={styles.facebookLoginButtonText}>
                             Se connecter via Facebook
@@ -122,6 +141,23 @@ class LoginScene extends Component {
 
     _handleFacebookLoginPress = () => {
         this.context.flux.actions.auth.loginWithFacebook();
+    }
+
+    _handlePasswordLostPress = () => {
+        const { email } = this.refs.form.getValue(true).value;
+
+        AlertIOS.prompt(
+            'Saisissez votre email :',
+            email,
+            [{
+                text: 'Annuler'
+            }, {
+                text: 'Envoyer',
+                onPress: (email) => {
+                    this.context.flux.actions.auth.submitPasswordLost(email);
+                }
+            }]
+        );
     }
 }
 

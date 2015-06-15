@@ -50,6 +50,21 @@ module.exports = {
         this.dispatch('LOGIN_SUCCESS', token);
         return Promise.resolve();
     },
+    submitPasswordLost(email) {
+        return hairfie
+            .post('/users/reset', { email })
+            .then(() => {
+                AlertIOS.alert(
+                    'Relevez vos emails',
+                    'Un email contenant un lien de réinitialisation de mot de passe devrait y arriver d\'ici à quelques instants.'
+                );
+            }, () => {
+                AlertIOS.alert(
+                    'Echec de l\'envoi',
+                    'L\'envoi de la demande de réinitialisation de mot de passe a échoué, veuillez réessayer.'
+                );
+            });
+    },
     chooseBusiness(businessId) {
         this.dispatch('CHOOSE_BUSINESS', businessId);
         return Promise.resolve();
