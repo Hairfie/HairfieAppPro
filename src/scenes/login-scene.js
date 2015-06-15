@@ -15,6 +15,7 @@ const Credentials = t.struct({
 const credentialsOptions = {
     fields: {
         email: {
+            autoCapitalize: 'none',
             keyboardType: 'email-address'
         },
         password: {
