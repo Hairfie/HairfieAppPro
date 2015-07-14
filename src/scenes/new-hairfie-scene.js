@@ -18,19 +18,15 @@ import HairfieInfos from '../components/hairfie-infos';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         paddingTop: 65,
         paddingBottom: 50
     },
     kindButton: {
-        flex: 1,
-        margin: 10,
-        backgroundColor: '#cccccc',
-        borderRadius: 10,
-        justifyContent: 'center'
+        padding: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#cccccc',
     },
     kindButtonText: {
-        textAlign: 'center'
     }
 });
 
@@ -82,7 +78,11 @@ export default class NewHairfieScene extends React.Component {
 
     _renderButton(title, onPress) {
         return (
-            <TouchableHighlight style={styles.kindButton} onPress={onPress}>
+            <TouchableHighlight
+                style={styles.kindButton}
+                onPress={onPress}
+                underlayColor="#cccccc"
+            >
                 <Text style={styles.kindButtonText}>
                     {title}
                 </Text>
