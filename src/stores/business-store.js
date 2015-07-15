@@ -1,5 +1,5 @@
-var Fluxxor = require('fluxxor');
-var _ = require('lodash');
+import Fluxxor from 'fluxxor';
+import _ from 'lodash';
 
 var BusinessStore = Fluxxor.createStore({
     actions: {

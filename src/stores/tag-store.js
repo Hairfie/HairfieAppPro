@@ -1,4 +1,5 @@
 import Fluxxor from 'fluxxor';
+import _ from 'lodash';
 
 export default Fluxxor.createStore({
     actions: {
