@@ -225,6 +225,7 @@ class HairfiesScene extends Component {
                     <ActivityIndicatorIOS
                         style={{
                             flex: 1,
+                            width: this.state.hairfieWidth,
                             backgroundColor: 'rgba(0,0,0,.5)'
                         }}
                         size="large"
