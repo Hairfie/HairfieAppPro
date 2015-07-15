@@ -1,5 +1,3 @@
-'use strict';
-
 import hairfie from '../services/hairfie-api';
 import uuid from 'uuid';
 import _ from 'lodash';

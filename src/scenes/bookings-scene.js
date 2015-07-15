@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react-native';
 
 import {
@@ -12,6 +10,7 @@ import {
     TouchableHighlight
 } from 'react-native';
 
+import _ from 'lodash';
 import RefreshableListView from '../components/refreshable-list-view';
 import connectToStores from '../utils/connectToStores';
 import BookingScene from './booking-scene';

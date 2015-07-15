@@ -1,5 +1,3 @@
-'use strict';
-
 import hairfie from '../services/hairfie-api';
 
 export default {

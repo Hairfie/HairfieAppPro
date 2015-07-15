@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react-native';
 import { StyleSheet, Text, NavigatorIOS, TabBarIOS } from 'react-native';
 import ActionSheetIOS from 'ActionSheetIOS';

@@ -1,5 +1,4 @@
-'use strict';
-
+import React from 'react-native';
 import {
     Component,
     StyleSheet,
@@ -8,13 +7,14 @@ import {
     TouchableHighlight,
     Text
 } from 'react-native';
+import _ from 'lodash';
 import RefreshableListView from './refreshable-list-view';
 import connectToStores from '../utils/connectToStores';
 
 const styles = StyleSheet.create({
     categoryName: {
         padding: 5,
-        containerBackgroundColor: '#eeeeee',
+        backgroundColor: '#eeeeee',
         textAlign: 'center',
         fontWeight: 'bold',
     },

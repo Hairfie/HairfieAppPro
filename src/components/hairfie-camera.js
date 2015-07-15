@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react-native';
 import {
     CameraRoll,
@@ -11,6 +9,7 @@ import {
     Image,
     AlertIOS
 } from 'react-native';
+import _ from 'lodash';
 import Dimensions from 'Dimensions';
 import Camera from 'react-native-camera';
 import { ImagePickerManager, HairfieImageManager } from 'NativeModules';

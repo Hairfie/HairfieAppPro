@@ -1,5 +1,3 @@
-'use strict';
-
 import moment from 'moment';
 import {} from 'moment/locale/fr';
 moment.locale('fr');

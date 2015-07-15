@@ -1,5 +1,3 @@
-'use strict';
-
 import hairfie from '../services/hairfie-api';
 import { FacebookLoginManager } from 'NativeModules';
 import { AlertIOS } from 'react-native';
@@ -16,10 +14,11 @@ module.exports = {
             .post('/users/login', { email, password })
             .then(
                 token => {
+                    console.log('token', token);
                     this.flux.actions.auth.loginWithToken(token)
                 },
                 () => {
-                    this.dispatch.bind(this, 'LOGIN_FAILURE')
+                    this.dispatch('LOGIN_FAILURE');
 
                     // TODO: use a store for alerts / infos
                     AlertIOS.alert(

@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react-native');
 var _ = require('lodash');
 var connectToStores = require('../utils/connectToStores');
@@ -28,7 +26,7 @@ var styles = StyleSheet.create({
         color: '#ffffff',
         fontSize: 22,
         padding: 5,
-        containerBackgroundColor: '#000000',
+        backgroundColor: '#000000',
         opacity: .8
     },
     businessAddress: {
@@ -36,7 +34,7 @@ var styles = StyleSheet.create({
         color: '#aaaaaa',
         fontSize: 14,
         padding: 5,
-        containerBackgroundColor: '#000000',
+        backgroundColor: '#000000',
         opacity: .7
     }
 });

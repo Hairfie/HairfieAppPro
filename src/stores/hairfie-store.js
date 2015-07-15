@@ -1,5 +1,3 @@
-'use strict';
-
 import Fluxxor from 'fluxxor';
 import _ from 'lodash';
 

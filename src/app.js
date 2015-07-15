@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react-native';
 import Router from './router';
 import flux from './flux';

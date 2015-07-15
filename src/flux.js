@@ -1,5 +1,3 @@
-'use strict';
-
 import { Flux } from 'fluxxor';
 
 var flux = new Flux({

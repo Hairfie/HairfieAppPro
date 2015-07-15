@@ -1,5 +1,4 @@
-'use strict';
-
+import React from 'react-native';
 import {
     Component,
     StyleSheet,
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     hairfiePriceText: {
-        containerBackgroundColor: 'rgba(0, 0, 0, 0)',
+        backgroundColor: 'rgba(0, 0, 0, 0)',
         fontSize: 11,
         color: '#ffffff',
         textAlign: 'center',

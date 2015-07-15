@@ -1,5 +1,3 @@
-'use strict';
-
 var hairfie = require('../services/hairfie-api');
 
 module.exports = {

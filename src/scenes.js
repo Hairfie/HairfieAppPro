@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
     login: {
         component: require('./scenes/login-scene')

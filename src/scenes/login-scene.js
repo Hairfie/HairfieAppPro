@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react-native';
 import {
     Component,
@@ -89,7 +87,7 @@ class LoginScene extends Component {
                 <Image
                     style={styles.logo}
                     resizeMode="contain"
-                    source={require('image!LoginLogo')}
+                    source={{ uri: 'LoginLogo', isStatic: true }}
                 />
                 <Form
                     ref="form"

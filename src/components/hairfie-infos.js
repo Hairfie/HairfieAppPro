@@ -1,5 +1,4 @@
-'use strict';
-
+import React from 'react-native';
 import {
     Component,
     StyleSheet,
@@ -8,6 +7,7 @@ import {
     Text,
     TextInput
 } from 'react-native';
+import _ from 'lodash';
 
 const styles = StyleSheet.create({
     label: {

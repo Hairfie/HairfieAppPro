@@ -1,5 +1,3 @@
-'use strict';
-
 var Fluxxor = require('fluxxor');
 
 var AuthStore = Fluxxor.createStore({

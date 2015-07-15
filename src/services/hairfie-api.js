@@ -1,5 +1,3 @@
-'use strict';
-
 import { FileTransfer } from 'NativeModules';
 import Client from 'hairfie-api';
 

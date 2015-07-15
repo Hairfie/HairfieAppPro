@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react-native';
 import { ScrollView, ListView, View, Text } from 'react-native';
 const RCTRefreshControl = require('react-refresh-control/RCTRefreshControl.ios');
