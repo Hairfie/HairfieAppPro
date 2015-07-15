@@ -1,4 +1,5 @@
 import React from 'react-native';
+import _ from 'lodash';
 import { StyleSheet, Text, NavigatorIOS, TabBarIOS } from 'react-native';
 import ActionSheetIOS from 'ActionSheetIOS';
 
